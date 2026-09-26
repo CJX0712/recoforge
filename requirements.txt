@@ -1,0 +1,6 @@
+# RecoForge 核心依赖（Tier-1 离线兜底，必装）
+# 干净环境一键安装即可运行全部 Tier-1 方法（ALS / KNN / 基线）
+numpy>=1.26
+scipy>=1.11
+scikit-learn>=1.5.0
+pytest>=7.0

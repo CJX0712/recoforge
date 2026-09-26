@@ -1,0 +1,101 @@
+{
+  "system": "RecoForge",
+  "version": "0.1.0",
+  "seed": 42,
+  "k": 10,
+  "dataset": {
+    "n_users": 200,
+    "n_items": 300,
+    "n_train": 2934,
+    "n_test": 200,
+    "density": 0.0489,
+    "split": "leave-n-out"
+  },
+  "results": [
+    {
+      "method": "Popularity",
+      "precision_at_k": 0.008,
+      "recall_at_k": 0.08,
+      "ndcg_at_k": 0.030968754264998673,
+      "map_at_k": 0.016561507936507937,
+      "backend": "tier1",
+      "available": true,
+      "error": ""
+    },
+    {
+      "method": "Random",
+      "precision_at_k": 0.002,
+      "recall_at_k": 0.02,
+      "ndcg_at_k": 0.012808031558224253,
+      "map_at_k": 0.010416666666666664,
+      "backend": "tier1",
+      "available": true,
+      "error": ""
+    },
+    {
+      "method": "GlobalMean",
+      "precision_at_k": 0.0034999999999999996,
+      "recall_at_k": 0.035,
+      "ndcg_at_k": 0.02894532413158944,
+      "map_at_k": 0.02716666666666667,
+      "backend": "tier1",
+      "available": true,
+      "error": ""
+    },
+    {
+      "method": "ItemKNN",
+      "precision_at_k": 0.04699999999999999,
+      "recall_at_k": 0.47,
+      "ndcg_at_k": 0.2744309465292256,
+      "map_at_k": 0.21421626984126987,
+      "backend": "tier1",
+      "available": true,
+      "error": ""
+    },
+    {
+      "method": "ALS",
+      "precision_at_k": 0.037000000000000005,
+      "recall_at_k": 0.37,
+      "ndcg_at_k": 0.22292405960985337,
+      "map_at_k": 0.17782341269841268,
+      "backend": "tier1",
+      "available": true,
+      "error": ""
+    },
+    {
+      "method": "ImplicitALS",
+      "precision_at_k": 0.04,
+      "recall_at_k": 0.4,
+      "ndcg_at_k": 0.22761428460889854,
+      "map_at_k": 0.17528769841269842,
+      "backend": "tier0",
+      "available": true,
+      "error": ""
+    }
+  ],
+  "ablation": [
+    {
+      "component": "ALS regularization",
+      "variant_a": "reg=0.1",
+      "variant_b": "reg=0 (off)",
+      "metric": "ndcg_at_k",
+      "value_a": 0.2229,
+      "value_b": 0.2255,
+      "delta": -0.0025
+    }
+  ],
+  "baseline_reference": {
+    "strong_baseline": "Popularity / ItemKNN (经典协同过滤)",
+    "sota_reference": "WRMF-ALS (Hu et al. 2008); LightGCN (He et al. 2020)",
+    "note": "本系统对标隐式反馈 CF 工业标准；公开榜单数字见 model_card.md"
+  },
+  "environment": {
+    "python": "3.13.14",
+    "platform": "Windows-11-10.0.29667-SP0",
+    "implicit_available": true,
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "sklearn": "1.9.1",
+    "implicit": "0.7.3"
+  }
+}
